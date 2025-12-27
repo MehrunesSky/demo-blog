@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - "mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java"
+      - "mother/build.gradle"
 
 jobs:
   publish:
@@ -22,3 +23,4 @@ jobs:
           gist_id: 7dbb4bb4742a858061b947ba4dc220d1
           file_path: |
             mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java
+            mother/build.gradle
