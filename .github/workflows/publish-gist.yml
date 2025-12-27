@@ -1,0 +1,22 @@
+name: Publish files to Gist
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish to Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.GIST_TOKEN }}
+          gist_id: abcd1234efgh5678
+          file_path: |
+            mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java
