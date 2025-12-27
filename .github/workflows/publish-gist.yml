@@ -9,11 +9,13 @@ on:
     paths:
       - "mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java"
       - "mother/build.gradle"
+      - ".github/workflows/publish-gist.yml"
 
 env:
   GIST_FILES: |
     mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java
     mother/build.gradle
+    .github/workflows/publish-gist.yml
 
 jobs:
   publish:
