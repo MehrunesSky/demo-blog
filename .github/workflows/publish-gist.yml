@@ -24,8 +24,11 @@ jobs:
       - name: Publish files to Gist
         run: |
           for file in $GIST_FILES; do
-            echo "Publishing $file"
-            gh gist edit 7dbb4bb4742a858061b947ba4dc220d1 "$file"
+            name=$(echo "$file" | tr '/' '_')
+            echo "Publishing $file $name"
+            gh gist edit 7dbb4bb4742a858061b947ba4dc220d1 \
+              --filename "$name" \
+              "$file"
           done
         env:
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
