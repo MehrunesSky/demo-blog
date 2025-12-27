@@ -21,22 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prepare files for Gist
+      - name: Publish files to Gist
         run: |
-          mkdir -p gist
-          while IFS= read -r file; do
-            [ -z "$file" ] && continue
-            if [ ! -f "$file" ]; then
-              echo "❌ File not found: $file"
-              exit 1
-            fi
-            echo "Copy $file"
-            cp "$file" gist/
-          done <<< "$GIST_FILES"
-
-      - name: Publish to Gist
-        uses: exuanbo/actions-deploy-gist@v1
-        with:
-          token: ${{ secrets.GIST_TOKEN }}
-          gist_id: 7dbb4bb4742a858061b947ba4dc220d1
-          file_path: gist
+          for file in $GIST_FILES; do
+            echo "Publishing $file"
+            gh gist edit 7dbb4bb4742a858061b947ba4dc220d1 "$file"
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
