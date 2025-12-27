@@ -28,7 +28,7 @@ jobs:
             echo "Publishing $file $name"
             gh gist edit 7dbb4bb4742a858061b947ba4dc220d1 \
               --filename "$name" \
-              "$file"
+              --add "$file"
           done
         env:
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
