@@ -17,6 +17,6 @@ jobs:
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.GIST_TOKEN }}
-          gist_id: abcd1234efgh5678
+          gist_id: 7dbb4bb4742a858061b947ba4dc220d1
           file_path: |
             mother/src/testFixtures/java/com/github/mehrunessky/demo/blog/mother/PersonMother.java
